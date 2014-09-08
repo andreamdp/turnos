@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from aplicacion.views import *
 from django.contrib import admin
 from django.conf import settings
+from aplicacion.views import vote
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,12 +12,18 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
      # Uncomment the next line to enable the admin:
- (r'^admin/app/estudiante/$', jqgrid_estudiante),#cargar el template listado de estudiantes.
- (r'^admin/app/estudiante/ver/$', ver_jqgrid_estudiante),#cargar el jqgrid con la data del modelo estudiante, asi como busquedas y ordenar.
- (r'^admin/app/estudiante/obtener_carreras/$', obtener_carreras),#obtener las carreras de manera dinámica
- (r'^admin/app/estudiante/master/$', master_jqgrid_estudiante),#ejecutar operaciones de agregar, modificar o eliminar registros
+ #(r'^admin/app/estudiante/$', jqgrid_estudiante),#cargar el template listado de estudiantes.
+ #(r'^admin/app/estudiante/ver/$', ver_jqgrid_estudiante),#cargar el jqgrid con la data del modelo estudiante, asi como busquedas y ordenar.
+ #(r'^admin/app/estudiante/obtener_carreras/$', obtener_carreras),#obtener las carreras de manera dinámica
+ #(r'^admin/app/estudiante/master/$', master_jqgrid_estudiante),#ejecutar operaciones de agregar, modificar o eliminar registros
  (r'^admin/', include(admin.site.urls)),
- (r'^', index),
+ #(r'(?P<p_id>\d+)/$', vote),
+ url(r'^(?P<p_id>\d+)/vote/$', vote, name='vote'),
+ (r'a/$', index),
+ (r'a/gracias/', gracias),
+ (r'b/', importCSV),
+ (r'c/',manage_turnos),
+ 
  (r'^media/(.*)$', 'django.views.static.serve', { 'document_root': settings.MEDIA_ROOT }),
  
 )

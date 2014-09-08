@@ -1,0 +1,22 @@
+ {{formset.as_table}}
+            ---------------------=====================------------------------------------
+            <h3>Form</h3>
+
+            <fieldset>
+                <legend>Turnos disponibles</legend>
+         
+                <form action="" method="post">
+					       {% csrf_token %}
+						{% for t in turno %} 
+					<input type="radio" name="hora" value="">{{t.hora.day}}/{{t.hora.month}}/{{t.hora.year}},   {{t.hora.time}}<br>
+					{% endfor %}
+                    <p><label for="name">Name:</label>
+                    <input name="profesional" id="profesional" value="" type="text" /></p>
+                    <p><label for="nombre">Nombre:</label>
+                    <input name="nombre" id="nombre" value="" type="text" /></p>
+					<input name="disponible" id="disponible" value="0" type="text" /></p>
+                    <p><label for="message">Message:</label>
+                    <textarea cols="37" rows="11" name="message" id="message"></textarea></p>
+                    <p><input name="send" style="margin-left: 150px;" class="formbutton" value="Send" type="submit" /></p>
+                </form>
+            </fieldset>

@@ -1,6 +1,20 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from csvImporter.model import CsvDbModel
+PROFESIONAL_CHOICES = (
+                     ('Ferrando', 'Dr. Juan Carlos Ferrando.'),
+                     ('Insaurralde', 'Dr. Rubén O. Insaurralde'),
+                     ('Sztern', 'Dr. Jorge Sergio Sztern'),
+                     ('Rocatti', 'Dr. Carlos H. Rocatti'),
+                 )
+class MyCSvModel(CsvDbModel):
+    nombre = models.CharField(max_length=30)
+    
 
+    class Meta:
+        dbModel = 'Profesional'
+        delimiter = ";"
+                         
 class Profesional(models.Model):
     nombre = models.CharField(max_length=30)
     class Meta:
@@ -9,12 +23,16 @@ class Profesional(models.Model):
 
     def __unicode__(self):
         return self.nombre
+        
+
 class Turno(models.Model):
     profesional=models.ForeignKey(Profesional)
+    #profesional = models.CharField(max_length=1,choices=PROFESIONAL_CHOICES)
     nombre = models.CharField(max_length=30, null= True, blank=True)
     numero = models.CharField(max_length=6, null= True, blank=True)
   #  fecha = models.DateField()
     hora = models. DateTimeField()
+    disponible = models.IntegerField(default=0)
 
 
 from django.db import models

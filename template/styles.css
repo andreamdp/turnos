@@ -63,7 +63,7 @@ p {
 
 a, 
 .sidebar li ul li a.readmore {
-	color: #576680;
+	color: #09C6D4;
 }
 
 a:hover,
@@ -154,7 +154,7 @@ span.required {
 
 h1 {
 	color: #000;
-	font-size: 35px;
+	font-size: 50px;
 	font-family: 'Exo 2', Arial, sans-serif;
 }
 
@@ -169,7 +169,7 @@ h2 {
 }
 
 h3 {
-	color: #B998B5;
+	color: #7A41ED;
 	font-size: 24px;
 	font-weight: normal;
 	margin-bottom: 10px;
@@ -179,7 +179,7 @@ h3 {
 
 h4 {
     font-family: 'Exo 2', Arial, sans-serif;
-    color: #B998B5;
+    color: #7A41ED;
     font-size: 18px;
     font-weight: normal;
     padding-bottom: 10px;
@@ -226,7 +226,7 @@ header {
 
 header h1 a, header h1 a:hover {
  color: #fff;
-	background-color: #B998B5;
+	background-color: #7A41ED;
     font-size: 55px;
 	padding: 10px;
     font-weight: normal;
@@ -276,7 +276,7 @@ nav ul li.selected a:hover {
 
 
 nav ul li a:hover {
-	color: #B998B5;
+	color: #7A41ED;
 	text-decoration: none;
 }
 
@@ -432,7 +432,7 @@ footer .footer-content li a:hover {
 }
 
 footer .footer-content h4 {
-   color: #B998B5;
+   color: #7A41ED;
     font-size: 20px;
     font-weight: normal;
     padding-bottom: 0;

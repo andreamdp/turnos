@@ -1,0 +1,12 @@
+<h1>{{ nombre }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'vote' turno.id %}" method="post">
+{% csrf_token %}
+{% for t in turno.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ t.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ t.hora }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>

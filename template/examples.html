@@ -18,7 +18,7 @@ License: Creative Commons Attribution
 <div id="container">
   <header>
 	<div class="width">
-    		<h1><a href="/">Company<span>Name</span></a></h1>
+    		<h1><a href="/">Institución</span></a></h1>
        	</div>
     </header>
     <nav>
@@ -43,33 +43,34 @@ License: Creative Commons Attribution
 			<p>Seleccione profesional</p>
 			<SELECT NAME="selCombo" SIZE=1 onChange="javascript:alert('prueba');"> 
 	    <form>
-	    	<OPTION VALUE="link pagina 1">{{ profesional.0.nombre }}</OPTION>
-			<OPTION VALUE="link pagina 2">{{ profesional.1.nombre }}</OPTION>
-			<OPTION VALUE="link pagina 1">{{ profesional.2.nombre }}</OPTION>
-			<OPTION VALUE="link pagina 1">{{ profesional.3.nombre }}</OPTION>
-			<OPTION VALUE="link pagina 1">{{ profesional.4.nombre }}</OPTION>
+	    	<OPTION VALUE="profesional1">{{ profesional.0.nombre }}</OPTION>
+			<OPTION VALUE="profesional2">{{ profesional.1.nombre }}</OPTION>
+			<OPTION VALUE="profesional3">{{ profesional.2.nombre }}</OPTION>
+			<OPTION VALUE="profesional4">{{ profesional.3.nombre }}</OPTION>
+			<OPTION VALUE="profesional5">{{ profesional.4.nombre }}</OPTION>
 		</SELECT> 			
 </form> 
 
+			  
+
 <br>
-			   {% for t in turno %}
-						<input type="radio" name="sex" value={{ p.nombre }}>{{t.hora}}    <br>
-
-
-				{% endfor %}
-<input type="radio" name="sex" value="female">Female
-
-            
+            {{formset}}
+            ---------------------=====================------------------------------------
             <h3>Form</h3>
 
             <fieldset>
-                <legend>Form legend</legend>
-                <form action="#" method="get">
+                <legend>Turnos disponibles</legend>
+         
+                <form action="/a/gracias/="post">
+					       {% csrf_token %}
+						{% for t in turno %} 
+					<input type="radio" name="hora" value="">{{t.hora.day}}/{{t.hora.month}}/{{t.hora.year}},   {{t.hora.time}}<br>
+					{% endfor %}
                     <p><label for="name">Name:</label>
-                    <input name="name" id="name" value="" type="text" /></p>
-                    <p><label for="email">Email:</label>
-                    <input name="email" id="email" value="" type="text" /></p>
-
+                    <input name="profesional" id="profesional" value="" type="text" /></p>
+                    <p><label for="nombre">Nombre:</label>
+                    <input name="nombre" id="nombre" value="" type="text" /></p>
+					<input name="disponible" id="disponible" value="0" type="text" /></p>
                     <p><label for="message">Message:</label>
                     <textarea cols="37" rows="11" name="message" id="message"></textarea></p>
                     <p><input name="send" style="margin-left: 150px;" class="formbutton" value="Send" type="submit" /></p>
